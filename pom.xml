@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.axiom</groupId>
-	<artifactId>search</artifactId>
+	<artifactId>mobile-search-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>search</name>
+	<name>mobile-search-service</name>
 	<description>Axiom Task</description>
 	<properties>
 		<java.version>11</java.version>
