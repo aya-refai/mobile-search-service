@@ -1,16 +1,25 @@
 package com.axiom.search;
 
+import com.axiom.search.services.SearchService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class SearchApplication {
+public class SearchApplication implements CommandLineRunner{
+
+	@Autowired
+	private SearchService searchService;
 
 	public static void main(String[] args) {
-		System.out.println("Application is Running...");
 		SpringApplication.run(SearchApplication.class, args);
 	}
 
+	@Override
+	public void run(String... args) {
+		searchService.initDatabase();
+	}
 }

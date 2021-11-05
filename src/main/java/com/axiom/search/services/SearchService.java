@@ -3,6 +3,8 @@ package com.axiom.search.services;
 import com.axiom.search.dto.MobileSearchCriteria;
 import com.axiom.search.clients.SearchClient;
 import com.axiom.search.dto.MobileDto;
+import com.axiom.search.mapper.MobileHandsetMapper;
+import com.axiom.search.repositories.MobileHandsetRepository;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,19 +16,29 @@ import java.util.stream.Collectors;
 public class SearchService {
 
     private SearchClient searchClient;
+    private MobileHandsetRepository repository;
+    private MobileHandsetMapper mapper;
 
-    public SearchService (SearchClient searchClient) {
+    public SearchService (SearchClient searchClient, MobileHandsetRepository repository,
+                          MobileHandsetMapper mapper) {
         this.searchClient = searchClient;
+        this.repository = repository;
+        this.mapper = mapper;
     }
 
     public List<MobileDto> searchMobiles(MobileSearchCriteria searchCriteria) {
-        List<MobileDto> allMobiles = searchClient.searchMobiles();
+        List<MobileDto> allMobiles = mapper.toDTOs(repository.findAll());
 
         List<MobileDto> filteredList = allMobiles.stream()
                 .filter(generateSearchPredicates(searchCriteria).stream().reduce(x->true, Predicate::and))
                 .collect(Collectors.toList());
 
         return filteredList;
+    }
+
+    public void initDatabase() {
+        List<MobileDto> allMobiles = searchClient.searchMobiles();
+        repository.saveAll(mapper.toEntities(allMobiles));
     }
 
     private List<Predicate<MobileDto>> generateSearchPredicates(MobileSearchCriteria searchCriteria) {

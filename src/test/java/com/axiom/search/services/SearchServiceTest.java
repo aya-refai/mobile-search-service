@@ -1,20 +1,21 @@
 package com.axiom.search.services;
 
-import com.axiom.search.clients.SearchClient;
 import com.axiom.search.dto.HardwareDto;
 import com.axiom.search.dto.MobileDto;
 import com.axiom.search.dto.MobileSearchCriteria;
 import com.axiom.search.dto.ReleaseDto;
+import com.axiom.search.mapper.MobileHandsetMapper;
+import com.axiom.search.repositories.MobileHandsetRepository;
+import com.axiom.search.repositories.entities.MobileHandsetEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.lenient;
@@ -26,12 +27,18 @@ public class SearchServiceTest {
     private SearchService searchService;
 
     @Mock
-    private SearchClient searchClient;
+    private MobileHandsetRepository repository;
+
+    @Mock
+    private MobileHandsetMapper mapper;
 
     @BeforeEach
     public void setup() {
         List<MobileDto> mobileDtoList = buildMobileDtoList();
-        lenient().when(searchClient.searchMobiles()).thenReturn(mobileDtoList);
+        List<MobileHandsetEntity> mobileHandsetEntities = new ArrayList<>();
+        lenient().when(repository.findAll()).thenReturn(mobileHandsetEntities);
+        lenient().when(mapper.toDTOs(mobileHandsetEntities))
+                .thenReturn(mobileDtoList);
     }
 
     @Test
