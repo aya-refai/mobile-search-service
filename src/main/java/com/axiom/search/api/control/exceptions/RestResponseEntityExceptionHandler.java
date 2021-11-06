@@ -1,4 +1,4 @@
-package com.axiom.search.exceptions;
+package com.axiom.search.api.control.exceptions;
 
 import feign.FeignException;
 import org.springframework.http.HttpHeaders;

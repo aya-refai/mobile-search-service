@@ -1,4 +1,4 @@
-package com.axiom.search.repositories.entities;
+package com.axiom.search.api.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

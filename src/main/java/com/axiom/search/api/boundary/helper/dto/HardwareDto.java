@@ -1,4 +1,4 @@
-package com.axiom.search.dto;
+package com.axiom.search.api.boundary.helper.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -10,9 +10,11 @@ import lombok.AllArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReleaseDto {
+public class HardwareDto {
     @JsonProperty
-    private String announceDate;
+    private String audioJack;
     @JsonProperty
-    private int priceEur;
+    private String gps;
+    @JsonProperty
+    private String battery;
 }

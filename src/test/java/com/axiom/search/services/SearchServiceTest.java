@@ -1,12 +1,13 @@
 package com.axiom.search.services;
 
-import com.axiom.search.dto.HardwareDto;
-import com.axiom.search.dto.MobileDto;
-import com.axiom.search.dto.MobileSearchCriteria;
-import com.axiom.search.dto.ReleaseDto;
-import com.axiom.search.mapper.MobileHandsetMapper;
-import com.axiom.search.repositories.MobileHandsetRepository;
-import com.axiom.search.repositories.entities.MobileHandsetEntity;
+import com.axiom.search.api.boundary.helper.dto.HardwareDto;
+import com.axiom.search.api.boundary.helper.dto.MobileDto;
+import com.axiom.search.api.boundary.helper.dto.MobileSearchCriteria;
+import com.axiom.search.api.boundary.helper.dto.ReleaseDto;
+import com.axiom.search.api.boundary.helper.mapper.MobileHandsetMapper;
+import com.axiom.search.api.control.SearchService;
+import com.axiom.search.api.entity.repository.MobileHandsetRepository;
+import com.axiom.search.api.entity.MobileHandsetEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

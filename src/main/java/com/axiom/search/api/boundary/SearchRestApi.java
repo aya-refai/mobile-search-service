@@ -1,8 +1,8 @@
-package com.axiom.search.controllers;
+package com.axiom.search.api.boundary;
 
-import com.axiom.search.dto.MobileDto;
-import com.axiom.search.dto.MobileSearchCriteria;
-import com.axiom.search.services.SearchService;
+import com.axiom.search.api.boundary.helper.dto.MobileDto;
+import com.axiom.search.api.boundary.helper.dto.MobileSearchCriteria;
+import com.axiom.search.api.control.SearchService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +14,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/mobile")
 @Api(value = "Mobile EndPoints")
-public class SearchController {
+public class SearchRestApi {
 
     private SearchService searchService;
 
-    public SearchController(SearchService searchService) {
+    public SearchRestApi(SearchService searchService) {
         this.searchService = searchService;
     }
 

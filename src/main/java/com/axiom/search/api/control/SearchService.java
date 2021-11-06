@@ -1,10 +1,10 @@
-package com.axiom.search.services;
+package com.axiom.search.api.control;
 
-import com.axiom.search.dto.MobileSearchCriteria;
-import com.axiom.search.clients.SearchClient;
-import com.axiom.search.dto.MobileDto;
-import com.axiom.search.mapper.MobileHandsetMapper;
-import com.axiom.search.repositories.MobileHandsetRepository;
+import com.axiom.search.api.boundary.helper.dto.MobileSearchCriteria;
+import com.axiom.search.api.control.clients.SearchClient;
+import com.axiom.search.api.boundary.helper.dto.MobileDto;
+import com.axiom.search.api.boundary.helper.mapper.MobileHandsetMapper;
+import com.axiom.search.api.entity.repository.MobileHandsetRepository;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;

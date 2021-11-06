@@ -1,8 +1,8 @@
 package com.axiom.search.api;
 
-import com.axiom.search.dto.MobileDto;
-import com.axiom.search.dto.MobileSearchCriteria;
-import com.axiom.search.services.SearchService;
+import com.axiom.search.api.boundary.helper.dto.MobileDto;
+import com.axiom.search.api.boundary.helper.dto.MobileSearchCriteria;
+import com.axiom.search.api.control.SearchService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class SearchControllerTest {
+public class SearchRestApiTest {
 
     @MockBean
     SearchService searchService;

@@ -1,6 +1,6 @@
 package com.axiom.search;
 
-import com.axiom.search.services.SearchService;
+import com.axiom.search.api.control.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
